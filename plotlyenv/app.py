@@ -19,4 +19,10 @@ app.layout = html.Div([
                                             'x': [1,2], 
                                             'y': [3,1]
                                                      }]
-                                           
+                                            }
+                                   )
+                        ])
+
+# Connect to Server
+if __name__ == '__main__':
+    app.run_server()
