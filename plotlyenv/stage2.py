@@ -1,10 +1,13 @@
 # Import relevant libraries
+import os
 import dash
 import dash_core_components as dcc
 import dash_html_components as html
 import pandas_datareader.data as web
 from datetime import datetime, date, timedelta
 from dash.dependencies import Input, Output
+from dotenv import load_dotenv 
+
 
 app = dash.Dash()
 
@@ -32,7 +35,7 @@ app.layout = html.Div([
                [Input('my_ticker_symbol', 'value')]
               )
 def update_graph(stock_ticker):
-    start = datetime.today()-timedelta(days=90)
+    start = datetime.today() - timedelta(days=90)
     end = datetime.today()
     df = web.DataReader(stock_ticker, 'iex', start, end)
     fig = {
